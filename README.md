@@ -15,7 +15,7 @@ npm install @soulmaneller-dev/nodejs-model-mysql
 ## Usage
 
 ```
-const Model = require( '@soulmaneller-dev/nodejs-model-mysql' );
+const { Model } = require( '@soulmaneller-dev/nodejs-model-mysql' );
 
 const modelUser = new Model( db, options );
 
