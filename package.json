@@ -1,0 +1,32 @@
+{
+  "name": "@soulmaneller-dev/nodejs-model-mysql",
+  "version": "0.0.0",
+  "description": "Description",
+  "main": "index.js",
+  "scripts": {
+    "postversion": "git push && git push --tags && npm publish --access=public",
+    "watch": "chokidar \"pattern\" -c \"command\"",
+    "test": "mocha test",
+    "dev": "npm run test --silent && chokidar \"./test\" \"./lib\" \"./index.js\" -c \"npm run test --silent\"",
+    "start": "npm run dev"
+  },
+  "engines": {
+    "node": ">=8"
+  },
+  "license": "ISC",
+  "keywords": [
+    "node",
+    "nodejs",
+    "mysql",
+    "model"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "chokidar-cli": "^1.2.0",
+    "mocha": "^5.1.1",
+    "sinon": "^4.5.0",
+    "sinon-chai": "^3.0.0"
+  },
+  "repository": "https://github.com/soulmaneller/nodejs-model-mysql"
+}
