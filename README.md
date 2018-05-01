@@ -1,5 +1,8 @@
 # node-mysql-model
 
+[![Build Status](https://travis-ci.org/soulmaneller/nodejs-model-mysql.svg?branch=master)](https://travis-ci.org/soulmaneller/nodejs-model-mysql)
+[![npm](https://img.shields.io/npm/v/@soulmaneller-dev/nodejs-model-mysql.svg)](https://github.com/soulmaneller/nodejs-model-mysql)
+
 Model using connected MySQL connection.
 This is a promise module
 
