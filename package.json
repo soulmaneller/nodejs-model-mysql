@@ -11,7 +11,7 @@
     "start": "npm run dev"
   },
   "engines": {
-    "node": ">=8"
+    "node": ">=6"
   },
   "license": "ISC",
   "keywords": [
