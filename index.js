@@ -111,19 +111,23 @@ class QueryString {
         return this;
     }
 
-    exec() {
+    exec( callback ) {
         let conditions = this.conditions ? `WHERE ${ this.conditions }` : '';
         let order = this.order ? `${ this.order } ${ this.orderType }` : '';
         let queryString = `${ this.begin }${ getStr( this._update.join( ', ' ))}${ getStr( conditions || this.add.join( ", " ))}${ getStr( order )}${ getStr( this.limitNo )}`.trim();
         function getStr( str ) {
             return str ? ` ${ str }` : '';
         }
-        return this.db.query( queryString, this.val );
+        return this.db.query( queryString, this.val, callback );
     }
 }
 
 class Model {
     constructor( db, config ) {
+        if( typeof db.query !== 'function' ) {
+            throw new Error( 'db.query is not a function' );
+        }
+
         if( !config || typeof config !== 'object' || Array.isArray( config )) {
             throw new Error( 'Config must be an object' );
         }
@@ -149,12 +153,20 @@ class Model {
         return this.queryString().select( ...fields );
     }
 
-    find( value, fields ) {
+    find( value, fields, callback ) {
         if( this.primaryKey === null ) {
             return Promise.reject( 'Primary keys is undefined' );
         }
+
+        if( typeof fields === 'function' ) {
+            callback = fields;
+            fields = [];
+        }
         fields = fields || [];
-        return this.select( ...fields ).where( this.primaryKey, value ).exec().then( res => res[ 0 ] || null );
+        return this.select( ...fields ).where( this.primaryKey, value ).exec().then( res => {
+            let output = res[ 0 ] || null;
+            return callback ? callback( null, output ) : output;
+        }).catch( err => callback( err ) || err );
     }
 
     insert( ...fields ) {
@@ -170,4 +182,15 @@ class Model {
     }
 }
 
-module.exports = { Model, QueryString };
+
+class MySQLModel {
+    constructor( db ) {
+        this.db = db;
+    }
+
+    extend( config ) {
+        return new Model( this.db, config );
+    }
+}
+
+module.exports = { MySQLModel, Model };
