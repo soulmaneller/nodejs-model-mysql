@@ -4,7 +4,7 @@
   "description": "This is a simple mysql model",
   "main": "index.js",
   "scripts": {
-    "postversion": "git push && git push --tags",
+    "postversion": "git push && git push --tags && npm publish",
     "watch": "chokidar \"pattern\" -c \"command\"",
     "test": "mocha test",
     "dev": "npm run test --silent && chokidar \"./test\" \"./lib\" \"./index.js\" -c \"npm run test --silent\"",
