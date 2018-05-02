@@ -4,7 +4,7 @@
   "description": "This is a simple mysql model",
   "main": "index.js",
   "scripts": {
-    "postversion": "git push && git push --tags && npm publish --access=public",
+    "postversion": "git push && git push --tags",
     "watch": "chokidar \"pattern\" -c \"command\"",
     "test": "mocha test",
     "dev": "npm run test --silent && chokidar \"./test\" \"./lib\" \"./index.js\" -c \"npm run test --silent\"",
@@ -28,5 +28,8 @@
     "sinon": "^4.5.0",
     "sinon-chai": "^3.0.0"
   },
+  "publishConfig": {
+    "access": "public"
+},
   "repository": "https://github.com/soulmaneller/nodejs-model-mysql"
 }
