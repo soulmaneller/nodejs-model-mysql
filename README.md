@@ -151,3 +151,30 @@ Query by order by fields
 ### limit( number [, to ])
 
 Query by limit the rows
+
+## Example
+
+```
+const users = new Model( db, { table: 'users', primaryKey: 'user_id' });
+
+// Select user where user_id = 1 and user_status = 'active'
+users.select()
+    .where( 'user_id', 1 )
+    .where( 'user_status', 'active' )
+    .exec()
+    .then( result => {
+        // do something
+    });
+
+// Select user where user_status = 'active' and user_age > 10 order by user_name limit 5
+users.select()
+    .where( 'user_status', 'active' )
+    .where( 'user_age', '>', 10 )
+    .orderBy( 'user_name' )
+    .limit( 5 )
+    .exec()
+    .then( result => {
+        // do something
+    });
+
+```

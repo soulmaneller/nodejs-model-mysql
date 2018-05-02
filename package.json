@@ -1,10 +1,10 @@
 {
   "name": "@soulmaneller-dev/nodejs-model-mysql",
-  "version": "0.0.3",
+  "version": "0.0.2",
   "description": "This is a simple mysql model",
   "main": "index.js",
   "scripts": {
-    "postversion": "git push && git push --tags && npm publish",
+    "postversion": "git push && git push --tags && npm publish --access=public",
     "watch": "chokidar \"pattern\" -c \"command\"",
     "test": "mocha test",
     "dev": "npm run test --silent && chokidar \"./test\" \"./lib\" \"./index.js\" -c \"npm run test --silent\"",
