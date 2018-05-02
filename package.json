@@ -1,6 +1,6 @@
 {
   "name": "@soulmaneller-dev/nodejs-model-mysql",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "This is a simple mysql model",
   "main": "index.js",
   "scripts": {
@@ -30,6 +30,6 @@
   },
   "publishConfig": {
     "access": "public"
-},
+  },
   "repository": "https://github.com/soulmaneller/nodejs-model-mysql"
 }
