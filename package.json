@@ -1,6 +1,6 @@
 {
   "name": "@soulmaneller-dev/nodejs-model-mysql",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "This is a simple mysql model",
   "main": "index.js",
   "scripts": {
